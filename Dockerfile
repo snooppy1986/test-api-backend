@@ -1,4 +1,4 @@
-FROM richarvey/nginx-php-fpm:8.2
+FROM phpdockerio/php:8.3-fpm
 
 COPY . .
 
