@@ -19,7 +19,7 @@ class EnsureTokenIsValid
     {
         $token = Token::query()->first();
 
-        if($token->token !== $request->header('token') || $token->is_used || $token->updated_at < Carbon::now()->subMinutes(40)){
+        if(!$token || $token->token !== $request->header('token') || $token->is_used || $token->updated_at < Carbon::now()->subMinutes(40)){
             return response()->json([
                 'success' => false,
                 'message' => 'The token expired'
