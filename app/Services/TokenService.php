@@ -21,19 +21,30 @@ class TokenService
         ]);
     }
 
-    public function refreshToken()
+    public function refreshToken($id)
     {
-        $token = Token::query()->first();
-        $token
-            ? $token ->update([
+        $token = Token::query()->updateOrCreate(
+            [
+                'id' => $id
+            ],
+            [
                 'token' => Str::random(32),
                 'is_used' => false
-            ])
-            : Token::query()->create([
+            ]
+        );
+        /*$token = Token::query()->first();
+        if($token){
+            $token->update([
                 'token' => Str::random(32),
                 'is_used' => false
-                ]);
-        $token->refresh();
+            ]);
+            $token->refresh();
+        }else{
+            $token = Token::query()->create([
+
+            ]);
+        }*/
+
         return $token;
     }
 }

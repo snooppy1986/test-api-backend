@@ -16,7 +16,7 @@ class RefreshTokenController extends Controller
      */
     public function __invoke(TokenService $service)
     {
-        $data = $service->refreshToken();
+        $data = $service->refreshToken(1);
 
         return new TokenResource($data);
     }
