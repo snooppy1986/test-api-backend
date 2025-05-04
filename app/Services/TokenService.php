@@ -24,10 +24,15 @@ class TokenService
     public function refreshToken()
     {
         $token = Token::query()->first();
-        $token ->update([
-            'token' => Str::random(32),
-            'is_used' => false
-        ]);
+        $token
+            ? $token ->update([
+                'token' => Str::random(32),
+                'is_used' => false
+            ])
+            : Token::query()->create([
+                'token' => Str::random(32),
+                'is_used' => false
+                ]);
         $token->refresh();
         return $token;
     }
