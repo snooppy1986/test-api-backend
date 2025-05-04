@@ -12,7 +12,7 @@ class PositionService
 {
     public function getPositions()
     {
-        $positions = Position::query()->find(56);
+        $positions = Position::all();
 
         if(!$positions){
             throw new ItemNotFoundException(message: 'Positions not found', code: 404);
