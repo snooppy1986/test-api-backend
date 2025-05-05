@@ -20,7 +20,7 @@ jobs:
           DB_PORT: ${{ job.services.mysql.ports['3306'] }}
           DB_USERNAME: root
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-        run: php artisan migrate
+        run: php artisan migrate:fresh
 #      - name: Optimize clear
  #       run: php artisan optimize:clear
 #      - name: Directory Permissions
