@@ -27,7 +27,7 @@ class CreateUserRequest extends FormRequest
             "name" => ['required', 'min:2', 'max:60'],
             "email" => ['required','min:6', 'max:100', new EmailRule()],
             "phone" => ['required', new PhoneRule()],
-            "position_id" => [/*'required', */'integer', 'min:1'],
+            "position_id" => ['nullable',/*'required', */'integer', 'min:1'],
             "photo" => ['required', 'mimes:jpg,jpeg', 'max:5120', 'dimensions:min_width=70,min_height=70']
         ];
     }
