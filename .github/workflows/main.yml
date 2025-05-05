@@ -14,7 +14,12 @@ jobs:
         run: composer install --optimize-autoloader --no-dev
       - name: Generate key
         run: php artisan key:generate
-      - name: Database Migration
+      - name: Create Database Schema
+        env:
+          DB_DATABASE: ${{ secrets.DB_DATABASE }}
+          DB_PORT: ${{ job.services.mysql.ports['3306'] }}
+          DB_USERNAME: root
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         run: php artisan migrate
 #      - name: Optimize clear
  #       run: php artisan optimize:clear
