@@ -12,8 +12,8 @@ jobs:
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
       - name: Install Dependencies
         run: composer install --optimize-autoloader --no-dev
-#      - name: Generate key
-#        run: php artisan key:generate
+      - name: Generate key
+        run: php artisan key:generate
 #      - name: Database Migration
 #        run: php artisan migrate
 #      - name: Optimize clear
