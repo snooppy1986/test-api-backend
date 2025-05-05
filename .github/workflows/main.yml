@@ -10,8 +10,8 @@ jobs:
 
       - name: Copy .env
         run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-#      - name: Install Dependencies
-#        run: composer install --optimize-autoloader --no-dev
+      - name: Install Dependencies
+        run: composer install --optimize-autoloader --no-dev
 #      - name: Generate key
 #        run: php artisan key:generate
 #      - name: Database Migration
