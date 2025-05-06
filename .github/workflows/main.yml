@@ -32,7 +32,7 @@ jobs:
           DB_DATABASE: if0_38906542_abz
           DB_PORT: 3306
           DB_USERNAME: if0_38906542
-          DB_PASSWORD: wXILjNCSGD
+          DB_PASSWORD: 'wXILjNCSGD'
         run: php artisan migrate:fresh
 #      - name: Optimize clear
 #       run: php artisan optimize:clear
