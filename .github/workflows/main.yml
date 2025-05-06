@@ -20,7 +20,7 @@ jobs:
           DB_PORT: 3306
           DB_USERNAME: if0_38906542
           DB_PASSWORD: wXILjNCSGD
-        run: php artisan migrate:reset
+        run: php artisan migrate:refresh
 #      - name: Optimize clear
 #       run: php artisan optimize:clear
 #      - name: Directory Permissions
