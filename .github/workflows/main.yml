@@ -29,7 +29,6 @@ jobs:
         run: php artisan key:generate
       - name: Create Database Schema
         env:
-          DB_HOST: sql102.infinityfree.com
           DB_DATABASE: if0_38906542_abz
           DB_PORT: 3306
           DB_USERNAME: if0_38906542
