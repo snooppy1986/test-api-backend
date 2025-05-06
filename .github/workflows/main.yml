@@ -16,11 +16,11 @@ jobs:
         run: php artisan key:generate
       - name: Create Database Schema
         env:
-          DB_DATABASE: if0_38906542_abz1
+          DB_DATABASE: if0_38906542_abz
           DB_PORT: 3306
           DB_USERNAME: if0_38906542
-          DB_PASSWORD: 'wXILjNCSGD'
-        run: php artisan migrate --force
+          DB_PASSWORD: wXILjNCSGD
+        run: php artisan migrate:reset
 #      - name: Optimize clear
 #       run: php artisan optimize:clear
 #      - name: Directory Permissions
