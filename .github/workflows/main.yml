@@ -16,7 +16,7 @@ jobs:
           --health-cmd="mysqladmin ping"
           --health-interval=10s
           --health-timeout=5s
-          --health-retries=3    
+          --health-retries=3
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v2
@@ -31,11 +31,11 @@ jobs:
         env:
           DB_DATABASE: ${{ secrets.DB_DATABASE }}
           DB_PORT: ${{ job.services.mysql.ports['3306'] }}
-          DB_USERNAME: root
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
           DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         run: php artisan migrate:fresh
 #      - name: Optimize clear
- #       run: php artisan optimize:clear
+#       run: php artisan optimize:clear
 #      - name: Directory Permissions
 #        run: chmod -R 777 storage bootstrap/cache
 
@@ -46,4 +46,4 @@ jobs:
           server-dir: htdocs/
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
-#          server-dir: 
+
